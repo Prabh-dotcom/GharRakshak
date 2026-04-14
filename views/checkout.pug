@@ -13,18 +13,27 @@ block content
       .login-box
         h3 Account
         p To continue, please login
-        button.login-btn Login / Sign Up
+        button.login-btn(onclick="goToProfile()") Login / Sign Up
 
       // ADDRESS BOX
       .address-box
         h3 Service Address
 
-        .address-card
-          h4 Rahul Sharma
-          p 123, Delhi, India
-          p +91 9876543210
+        // VIEW MODE
+        .address-card#addressView
+          h4#addrName Rahul Sharma
+          p#addrAddress 123, Delhi, India
+          p#addrPhone +91 9876543210
 
-        button.change-btn Change Address
+        button.change-btn(onclick="enableAddressEdit()") Change Address
+
+        // EDIT MODE (hidden by default)
+        .address-form#addressForm(style="display:none; margin-top:10px;")
+          input(type="text" id="editName" placeholder="Full Name")
+          input(type="text" id="editPhone" placeholder="Phone Number")
+          textarea(id="editAddress" placeholder="Full Address")
+
+          button.save-btn(onclick="saveAddress()") Save Address
 
     // ===== RIGHT SIDE =====
     .checkout-right
@@ -76,3 +85,7 @@ block content
 
 block scripts
   script(src="../static/checkout.js")
+  script.
+    function goToProfile() {
+      window.location.href = "/profile";
+    }

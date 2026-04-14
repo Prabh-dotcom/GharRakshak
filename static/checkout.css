@@ -103,3 +103,24 @@
     border: none;
     border-radius: 6px;
 }
+
+.address-form input,
+.address-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+    border-radius: 6px;
+    border: none;
+    background: #0b0f19;
+    color: white;
+}
+
+.save-btn {
+    margin-top: 10px;
+    width: 100%;
+    padding: 10px;
+    background: #00d4ff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}

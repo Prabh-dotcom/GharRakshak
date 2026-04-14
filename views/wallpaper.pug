@@ -27,15 +27,15 @@ block content
 
       .sidebar-grid
         .side-item(onclick="filterService('pvc')")
-          img(src="/static/images/pvc.jpg")
+          img(src="/static/images/pvc-panels.avif")
           span PVC Panels
 
         .side-item(onclick="filterService('wallpaper')")
-          img(src="/static/images/wallpaper.jpg")
+          img(src="/static/images/wallpaper.avif")
           span Wallpaper
 
         .side-item(onclick="filterService('design')")
-          img(src="/static/images/design.jpg")
+          img(src="/static/images/custom-wall-decor.avif")
           span Wall Design
 
     // ===== MAIN =====
@@ -44,18 +44,18 @@ block content
 
       // PVC
       .service-group(data-category="pvc")
-        +serviceCard("PVC Wall Panel Install", 499, "pvc.jpg")
-        +serviceCard("PVC Ceiling Setup", 699, "pvc.jpg")
+        +serviceCard("PVC Wall Panel Install", 499, "pvc-panels.avif")
+        +serviceCard("PVC Ceiling Setup", 699, "pvc-repair.avif")
 
       // WALLPAPER
       .service-group(data-category="wallpaper")
-        +serviceCard("Wallpaper Installation", 399, "wallpaper.jpg")
-        +serviceCard("Wallpaper Removal", 199, "wallpaper.jpg")
+        +serviceCard("Wallpaper Installation", 399, "wallpaper.avif")
+        +serviceCard("Wallpaper Removal", 199, "wallpaper2.avif")
 
       // DESIGN
       .service-group(data-category="design")
-        +serviceCard("3D Wall Design", 999, "design.jpg")
-        +serviceCard("Custom Wall Decor", 1299, "design.jpg")
+        +serviceCard("3D Wall Design", 999, "3d-wall.avif")
+        +serviceCard("Custom Wall Decor", 1299, "custom-wall-decor.avif")
 
     // ===== RIGHT SIDE =====
     .service-right
