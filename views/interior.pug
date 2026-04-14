@@ -1,0 +1,122 @@
+extends base
+
+mixin serviceCard(name, price, img)
+  .service-card
+    img(src="/static/images/" + img)
+    .info
+      h3 #{name}
+      p ₹#{price}
+
+    .actions
+      button.add-btn(onclick=`addAndPay('${name}', ${price})`) Add
+
+      .qty-control(id=`control-${name}`)
+        button.minus(onclick=`changeQty('${name}', -1)`) −
+        span.qty(id=`qty-${name}`) 0
+        button.plus(onclick=`changeQty('${name}', 1)`) +
+
+block styles
+  link(rel="stylesheet", href="../static/electrician.css")
+
+block content
+  .service-page
+
+    // ===== SIDEBAR =====
+    .service-sidebar
+      h3 Select Interior Service
+
+      .sidebar-grid
+        .side-item(onclick="filterService('design')")
+          img(src="/static/images/2d-design.avif")
+          span Design
+
+        .side-item(onclick="filterService('furniture')")
+          img(src="/static/images/sofa.avif")
+          span Furniture
+
+        .side-item(onclick="filterService('lighting')")
+          img(src="/static/images/ceiling-light.avif")
+          span Lighting
+
+        .side-item(onclick="filterService('painting')")
+          img(src="/static/images/paint.avif")
+          span Painting
+
+        .side-item(onclick="filterService('decor')")
+          img(src="/static/images/wall-decor.avif")
+          span Decor
+
+        .side-item(onclick="filterService('modular')")
+          img(src="/static/images/cabinet.avif")
+          span Modular
+
+    // ===== MAIN =====
+    .service-main
+      h1 Interior Services 🏠
+
+      // DESIGN
+      .service-group(data-category="design")
+        +serviceCard("2D Design Plan", 999, "2d-design.avif")
+        +serviceCard("3D Interior Design", 1999, "3d-design.avif ")
+
+      // FURNITURE
+      .service-group(data-category="furniture")
+        +serviceCard("Custom Sofa", 4999, "sofa.avif")
+        +serviceCard("Wardrobe Setup", 3999, "wardrobe.avif")
+
+      // LIGHTING
+      .service-group(data-category="lighting")
+        +serviceCard("Ceiling Lights Setup", 499, "ceiling-light.avif")
+        +serviceCard("LED Panel Install", 699, "led-panel.avif  ")
+
+      // PAINTING
+      .service-group(data-category="painting")
+        +serviceCard("Wall Painting", 1499, "paint.avif")
+        +serviceCard("Texture Paint", 2499, "texture.avif")
+
+      // DECOR
+      .service-group(data-category="decor")
+        +serviceCard("Wall Decor Setup", 799, "wall-decor.avif")
+        +serviceCard("Curtain Installation", 599, "curtain.avif ")
+
+      // MODULAR
+      .service-group(data-category="modular")
+        +serviceCard("Modular Kitchen Setup", 9999, "modular-kitchen.avif")
+        +serviceCard("Cabinet Installation", 2999, "cabinet.avif")
+
+    // ===== RIGHT SIDE =====
+    .service-right
+
+      .cart-box
+        h3 Cart
+        ul#cart-items
+        p.total Total: ₹0
+        button.pay-btn(onclick="goToCheckout()") Proceed to Pay
+
+      .info-box
+        h4 Why choose us?
+        ul
+          li ✔ Expert Designers
+          li ✔ Premium Quality
+          li ✔ Affordable Packages
+
+      .info-box
+        h4 Safety Promise
+        ul
+          li ✔ Verified Professionals
+          li ✔ Safe Materials
+          li ✔ Service Warranty
+
+block scripts
+  script(src="../static/electrician.js")
+
+  script.
+    function goToCheckout() {
+        if (Object.keys(cart).length === 0) {
+            alert("Cart is empty!");
+            return;
+        }
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+        window.location.href = "/checkout";
+    }

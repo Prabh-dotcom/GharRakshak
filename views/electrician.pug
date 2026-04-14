@@ -1,0 +1,137 @@
+extends base
+
+mixin serviceCard(name, price, img)
+  .service-card
+    img(src="/static/images/" + img)
+    .info
+      h3 #{name}
+      p ₹#{price}
+
+    .actions
+      button.add-btn(onclick=`addAndPay('${name}', ${price})`) Add
+
+      .qty-control(id=`control-${name}`)
+        button.minus(onclick=`changeQty('${name}', -1)`) −
+        span.qty(id=`qty-${name}`) 0
+        button.plus(onclick=`changeQty('${name}', 1)`) +
+
+block styles
+  link(rel="stylesheet", href="../static/electrician.css")
+
+block content
+  .service-page
+
+    // ===== LEFT SIDEBAR =====
+    .service-sidebar
+      h3 Select a service
+
+      .sidebar-grid
+        .side-item(onclick="filterService('switch')")
+          img(src="/static/images/switch.jpg")
+          span Switch
+
+        .side-item(onclick="filterService('fan')")
+          img(src="/static/images/fan.jpg")
+          span  Fan
+
+        .side-item(onclick="filterService('wiring')")
+          img(src="/static/images/wiring.jpg")
+          span Wiring
+
+        
+        .side-item(onclick="filterService('light')")
+          img(src="/static/images/light.jpg")
+          span Light
+
+        .side-item(onclick="filterService('doorbell')")
+          img(src="/static/images/doorbell.jpg")
+          span Doorbell
+
+        .side-item(onclick="filterService('appliance')")
+          img(src="/static/images/appliances.jpg")
+          span Appliances
+
+        .side-item(onclick="filterService('ac')")
+          img(src="/static/images/ac.jpg")
+          span Service
+
+    // ===== MAIN =====
+    .service-main
+      h1 Electrician ⚡
+
+      // SWITCH
+      .service-group(data-category="switch")
+        +serviceCard("Switch Repair", 69, "switches.jpg")
+        +serviceCard("Socket Replacement", 99, "switch.jpg")
+        +serviceCard("Switchboard Repair", 149, "socket.webp")
+
+      // FAN
+      .service-group(data-category="fan")
+        +serviceCard("Fan Repair", 149, "fan.jpg")
+        +serviceCard("Fan Installation", 199, "fan2.avif")
+        +serviceCard("Ceiling Fan Setup", 249, "fan.jpg")
+        +serviceCard("Fan Cleaning", 99, "fan3.avif")
+
+      // WIRING
+      .service-group(data-category="wiring")
+        +serviceCard("House Wiring", 299, "wiring.jpg")
+        +serviceCard("Short Circuit Fix", 199, "wiring.avif")
+        +serviceCard("New Connection", 399, "wiring2.avif")
+
+      // ✅ LIGHT
+      .service-group(data-category="light")
+        +serviceCard("Tube Light Repair", 99, "tubelight.webp")
+        +serviceCard("LED Installation", 149, "led.avif")
+
+      // ✅ DOORBELL
+      .service-group(data-category="doorbell")
+        +serviceCard("Doorbell Install", 129, "doorbell.jpg")
+        +serviceCard("Smart Bell Setup", 299, "smartbell.webp")
+
+      // ✅ APPLIANCES
+      .service-group(data-category="appliance")
+        +serviceCard("Mixer Repair", 149, "mixer.avif")
+        +serviceCard("Speaker Fix", 199, "speaker.avif")
+
+      // ✅ AC
+      .service-group(data-category="ac")
+        +serviceCard("AC Servicing", 499, "ac.jpg")
+        +serviceCard("Gas Refill", 999, "ac.jpg")
+
+    
+    // ===== RIGHT SIDE =====
+    .service-right
+
+      .cart-box
+        h3 Cart
+        ul#cart-items
+        p.total Total: ₹0
+        button.pay-btn(onclick="goToCheckout()") Proceed to Pay
+
+      .info-box
+        h4 Why choose us?
+        ul
+          li ✔ Verified Electricians
+          li ✔ Fast Service
+          li ✔ Affordable Pricing
+
+      .info-box
+        h4 Safety Promise
+        ul
+          li ✔ Background Checked
+          li ✔ Hygiene Maintained
+          li ✔ Service Warranty
+
+block scripts
+  script(src="../static/electrician.js")
+
+  script.
+    function goToCheckout() {
+        if (Object.keys(cart).length === 0) {
+            alert("Cart is empty!");
+            return;
+        }
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+        window.location.href = "/checkout";
+    }

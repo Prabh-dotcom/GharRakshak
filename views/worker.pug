@@ -1,0 +1,56 @@
+extends base
+
+block styles
+  link(rel="stylesheet", href="../static/worker.css")
+
+block content
+  .partner-page
+
+    .partner-wrapper
+
+      // ===== LEFT FORM =====
+      .partner-container
+        h1 Work With Us 
+        p Join our platform and get customers daily!
+
+        form(action="/partner-submit" method="POST" enctype="multipart/form-data")
+
+          .form-group
+            label Full Name
+            input(type="text" name="name" required)
+
+          .form-group
+            label Phone Number
+            input(type="text" name="phone" required)
+
+          .form-group
+            label City
+            input(type="text" name="city" required)
+
+          .form-group
+            label Select Service
+            select(name="service" required)
+              option(value="electrician") Electrician
+              option(value="plumber") Plumber
+              option(value="carpenter") Carpenter
+              option(value="painter") Painter
+              option(value="gardener") Gardener
+
+          .form-group
+            label Experience (in years)
+            input(type="number" name="experience" required)
+
+          .form-group
+            label Upload ID Proof
+            input(type="file" name="idProof" required)
+
+          button.submit-btn(type="submit") Apply Now 
+
+      // ===== RIGHT IMAGE SECTION =====
+      .partner-image
+        .overlay
+          h2 Earn More. Work Smart 💼
+          p Get daily job leads near your location.
+
+block scripts
+    script(src="../static/worker.js")          

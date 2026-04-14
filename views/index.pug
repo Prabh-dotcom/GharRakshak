@@ -1,0 +1,62 @@
+extends base
+
+block content
+  section.hero
+    .hero-content
+      h1 Find Trusted Home Services in a Click!
+      p Connect with trusted professionals for every home need — instantly.
+
+      .hero-buttons
+        a.btn.primary(href="/about") About Us
+        a.btn.secondary(href="/worker") Work With Us
+
+  // ===== SERVICES SECTION =====
+  section.services-wrapper
+    h2.section-title Our Services
+
+    section.services
+
+      a(href="/electrician")
+        .card.card-electrician
+          img(src="../static/images/electrician.avif")
+          h3 Electrician ⚡
+
+      a(href="/plumber")
+        .card.card-plumber
+          img(src="../static/images/plumber.webp")
+          h3 Plumber 🚿
+
+      a(href="/carpenter")
+        .card.card-carpenter
+          img(src="../static/images/carpenter.avif")
+          h3 Carpenter 🪵
+
+      a(href="/gardener")
+        .card.card-gardener
+          img(src="../static/images/gardener.avif")
+          h3 Gardener 🌱
+
+      a(href="/painter")
+        .card.card-painter
+          img(src="../static/images/painter.avif")
+          h3 Painter 🎨
+
+      a(href="/interior")
+        .card.card-interior
+          img(src="../static/images/interiors.webp")
+          h3 Interior Designer 🏠
+
+      a(href="/pvc")
+        .card.card-pvc
+          img(src="../static/images/pvc.avif")
+          h3 PVC Work 🔩
+
+      a(href="/wallpaper")
+        .card.card-wallpaper
+          img(src="../static/images/wallpaper.avif")
+          h3 Wallpaper 🧱
+
+  // EXTRA SECTION (empty space fill)
+  section.extra-section
+    h2 Why Choose Us?
+    p Trusted professionals, quick service, and best prices for your home.

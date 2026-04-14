@@ -1,0 +1,58 @@
+extends base
+
+block styles
+  link(rel="stylesheet", href="../static/profile.css")
+
+block content
+  .profile-page
+
+    // ===== LEFT PROFILE CARD =====
+    .profile-card
+      img.profile-pic(src="../static/images/prabhjot.jpg" id="profileImg")
+
+      h2#userName Prabhjot Kaur
+      p#userPhone +91 9876543210
+
+      button.edit-btn(onclick="enableEdit()") Edit Profile
+
+    // ===== RIGHT DETAILS =====
+    .profile-details
+
+      h3 Personal Details
+
+      .form-group
+        label Full Name
+        input(type="text" id="name" value="Prabhjot Kaur" disabled)
+
+      .form-group
+        label Phone Number
+        input(type="text" id="phone" value="9876543210" disabled)
+
+      .form-group
+        label Email
+        input(type="email" id="email" value="prabhjot@email.com" disabled)
+
+      .form-group
+        label Address
+        textarea(id="address" disabled) 123, Delhi, India
+
+      button.save-btn(onclick="saveProfile()") Save Changes
+
+      // ===== EXTRA INFO =====
+      .extra-info
+        h3 Account Info
+
+        .info-box
+          span Wallet Balance
+          strong ₹ 2,450
+
+        .info-box
+          span Total Bookings
+          strong 12
+
+        .info-box
+          span Member Since
+          strong Jan 2026
+
+block scripts
+  script(src="../static/profile.js")

@@ -1,0 +1,122 @@
+extends base
+
+mixin serviceCard(name, price, img)
+  .service-card
+    img(src="/static/images/" + img)
+    .info
+      h3 #{name}
+      p ₹#{price}
+
+    .actions
+      button.add-btn(onclick=`addAndPay('${name}', ${price})`) Add
+
+      .qty-control(id=`control-${name}`)
+        button.minus(onclick=`changeQty('${name}', -1)`) −
+        span.qty(id=`qty-${name}`) 0
+        button.plus(onclick=`changeQty('${name}', 1)`) +
+
+block styles
+  link(rel="stylesheet", href="../static/electrician.css")
+
+block content
+  .service-page
+
+    // ===== LEFT SIDEBAR =====
+    .service-sidebar
+      h3 Select a service
+
+      .sidebar-grid
+        .side-item(onclick="filterService('furniture')")
+          img(src="/static/images/furniture.jpg")
+          span Furniture
+
+        .side-item(onclick="filterService('door')")
+          img(src="/static/images/door.jpg")
+          span Door
+
+        .side-item(onclick="filterService('window')")
+          img(src="/static/images/window.jpg")
+          span Window
+
+        .side-item(onclick="filterService('kitchen')")
+          img(src="/static/images/kitchen.jpg")
+          span Kitchen
+
+        .side-item(onclick="filterService('wardrobe')")
+          img(src="/static/images/furniture.jpg")
+          span Wardrobe
+
+        .side-item(onclick="filterService('repair')")
+          img(src="/static/images/sofa.jpg")
+          span Repair
+
+    // ===== MAIN =====
+    .service-main
+      h1 Carpenter Services 🪵
+
+      // FURNITURE
+      .service-group(data-category="furniture")
+        +serviceCard("Chair Repair", 199, "furniture.jpg")
+        +serviceCard("Table Repair", 249, "furniture.jpg")
+        +serviceCard("Sofa Fix", 299, "furniture.jpg")
+
+      // DOOR
+      .service-group(data-category="door")
+        +serviceCard("Door Repair", 149, "door.jpg")
+        +serviceCard("Door Installation", 399, "door.jpg")
+
+      // WINDOW
+      .service-group(data-category="window")
+        +serviceCard("Window Repair", 199, "window.jpg")
+
+      // KITCHEN
+      .service-group(data-category="kitchen")
+        +serviceCard("Cabinet Fix", 349, "kitchen.jpg")
+        +serviceCard("Drawer Repair", 199, "kitchen.jpg")
+
+      // WARDROBE
+      .service-group(data-category="wardrobe")
+        +serviceCard("Wardrobe Repair", 399, "wardrobe.jpg")
+        +serviceCard("Sliding Door Fix", 299, "wardrobe.jpg")
+
+      // GENERAL REPAIR
+      .service-group(data-category="repair")
+        +serviceCard("Wood Polish", 249, "repair.jpg")
+        +serviceCard("General Fixing", 199, "repair.jpg")
+
+    // ===== RIGHT SIDE =====
+    .service-right
+
+      .cart-box
+        h3 Cart
+        ul#cart-items
+        p.total Total: ₹0
+        button.pay-btn(onclick="goToCheckout()") Proceed to Pay
+
+      .info-box
+        h4 Why choose us?
+        ul
+          li ✔ Skilled Carpenters
+          li ✔ Quick Service
+          li ✔ Affordable Pricing
+
+      .info-box
+        h4 Safety Promise
+        ul
+          li ✔ Background Checked
+          li ✔ Safe & Clean Work
+          li ✔ Service Warranty
+
+block scripts
+  script(src="../static/electrician.js")
+
+  script.
+    function goToCheckout() {
+        if (Object.keys(cart).length === 0) {
+            alert("Cart is empty!");
+            return;
+        }
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+        window.location.href = "/checkout";
+    }

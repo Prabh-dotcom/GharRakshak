@@ -1,0 +1,55 @@
+extends base
+
+block styles
+  link(rel="stylesheet", href="../static/chat.css")
+
+block content
+  .chat-page
+
+    // ===== SIDEBAR =====
+    .chat-sidebar
+      h3 Chats
+
+      input.search#searchInput(type="text" placeholder="Search chats..." onkeypress="handleSearch(event)")
+
+      .chat-user.active(onclick="openChat(event, 'Rahul')")
+        img(src="/static/images/rahul.avif")
+        .info
+          span.name Rahul
+          span.last-msg Need electrician
+
+      .chat-user(onclick="openChat(event, 'Aman')")
+        img(src="/static/images/shyam.avif")
+        .info
+          span.name Aman
+          span.last-msg Plumber required
+
+      .chat-user(onclick="openChat(event, 'Neha')")
+        img(src="/static/images/avantika.avif")
+        .info
+          span.name Neha
+          span.last-msg Thanks 👍
+
+    // ===== MAIN CHAT =====
+    .chat-main
+
+      .chat-header
+        .header-left
+          img(src="/static/images/dp.avif")
+          .header-info
+            span#chat-name Rahul
+            small.online Online
+
+      .chat-messages#chat-messages
+        .message-row.left
+          .message.received Hello 👋
+
+        .message-row.right
+          .message.sent Hi! How can I help you?
+
+      .chat-input
+        input#messageInput(type="text" placeholder="Type a message..." onkeypress="handleEnter(event)")
+        button.send-btn(onclick="sendMessage()") ➤
+
+block scripts
+  script(src="../static/chat.js")

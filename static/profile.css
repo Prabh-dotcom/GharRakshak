@@ -1,0 +1,96 @@
+.profile-page {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 30px;
+    padding: 40px;
+}
+
+/* LEFT CARD */
+.profile-card {
+    background: #111827;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.profile-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 3px solid #00d4ff;
+}
+
+.profile-card h2 {
+    margin: 10px 0 5px;
+}
+
+.profile-card p {
+    color: #9ca3af;
+}
+
+.edit-btn {
+    margin-top: 15px;
+    padding: 10px;
+    width: 100%;
+    background: #00d4ff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* RIGHT SIDE */
+.profile-details {
+    background: #111827;
+    padding: 25px;
+    border-radius: 15px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #9ca3af;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+    background: #0b0f19;
+    color: white;
+}
+
+textarea {
+    resize: none;
+}
+
+.save-btn {
+    margin-top: 10px;
+    padding: 12px;
+    width: 100%;
+    background: #00d4ff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* EXTRA INFO */
+.extra-info {
+    margin-top: 30px;
+}
+
+.info-box {
+    display: flex;
+    justify-content: space-between;
+    background: #0b0f19;
+    padding: 12px;
+    border-radius: 8px;
+    margin-top: 10px;
+}

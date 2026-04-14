@@ -1,0 +1,78 @@
+extends base
+
+block styles
+  link(rel="stylesheet", href="../static/wallet.css")
+
+block content
+  .wallet-page
+
+    // ===== HEADER =====
+    .wallet-header
+      h1 My Wallet 💰
+      p Manage your balance & transactions
+
+    // ===== BALANCE CARD =====
+    .wallet-card
+      .balance
+        span Available Balance
+        h2 ₹ 2,450
+      button.add-money(onclick="openAddMoney()") + Add Money
+
+    // ===== QUICK ACTIONS =====
+    .wallet-actions
+      .action(onclick="openAddMoney()")
+        i.fa-solid.fa-plus
+        span Add Money
+
+      .action
+        i.fa-solid.fa-arrow-up
+        span Send
+
+      .action
+        i.fa-solid.fa-arrow-down
+        span Request
+
+      .action
+        i.fa-solid.fa-receipt
+        span History
+
+    // ===== TRANSACTIONS =====
+    .transactions
+      h3 Recent Transactions
+
+      .txn
+        .left
+          i.fa-solid.fa-bolt
+          div
+            span Electrician Service
+            small 2 April, 2026
+        .right.minus ₹ -499
+
+      .txn
+        .left
+          i.fa-solid.fa-faucet
+          div
+            span Plumber Booking
+            small 1 April, 2026
+        .right.minus ₹ -299
+
+      .txn
+        .left
+          i.fa-solid.fa-wallet
+          div
+            span Added Money
+            small 30 March, 2026
+        .right.plus ₹ +1000
+
+    // ===== ADD MONEY POPUP =====
+    .popup#addMoneyPopup
+      .popup-box
+        h3 Add Money
+
+        input#amount(type="number" placeholder="Enter amount")
+
+        button.pay(onclick="addMoney()") Proceed to Pay
+        button.close(onclick="closeAddMoney()") Cancel
+
+block scripts
+  script(src="../static/wallet.js")

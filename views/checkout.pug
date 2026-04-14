@@ -1,0 +1,78 @@
+extends base
+
+block styles
+  link(rel="stylesheet", href="../static/checkout.css")
+
+block content
+  .checkout-page
+
+    // ===== LEFT SIDE =====
+    .checkout-left
+
+      // LOGIN BOX
+      .login-box
+        h3 Account
+        p To continue, please login
+        button.login-btn Login / Sign Up
+
+      // ADDRESS BOX
+      .address-box
+        h3 Service Address
+
+        .address-card
+          h4 Rahul Sharma
+          p 123, Delhi, India
+          p +91 9876543210
+
+        button.change-btn Change Address
+
+    // ===== RIGHT SIDE =====
+    .checkout-right
+
+      .summary-box
+        h3 Payment Summary
+
+        .item
+          span AC Service (2 items)
+          span ₹1,098
+
+        .item
+          span Discount
+          span.green -₹100
+
+        .item
+          span Taxes & Fees
+          span ₹89
+
+        hr
+
+        .total
+          span Total Amount
+          span ₹1,187
+
+        button.pay-btn(onclick="openPayment()") Proceed to Pay
+
+      // PAYMENT METHODS
+      .payment-box#paymentBox
+        h3 Select Payment Method
+
+        label.method
+          input(type="radio" name="pay" checked)
+          span UPI (Google Pay / PhonePe)
+
+        label.method
+          input(type="radio" name="pay")
+          span Credit / Debit Card
+
+        label.method
+          input(type="radio" name="pay")
+          span Net Banking
+
+        label.method
+          input(type="radio" name="pay")
+          span Cash on Service
+
+        button.final-pay(onclick="payNow()") Pay Now
+
+block scripts
+  script(src="../static/checkout.js")

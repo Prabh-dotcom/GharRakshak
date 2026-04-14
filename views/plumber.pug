@@ -1,0 +1,111 @@
+extends base
+
+mixin serviceCard(name, price, img)
+  .service-card
+    img(src="/static/images/" + img)
+    .info
+      h3 #{name}
+      p ₹#{price}
+
+    .actions
+      button.add-btn(onclick=`addAndPay('${name}', ${price})`) Add
+
+      .qty-control(id=`control-${name}`)
+        button.minus(onclick=`changeQty('${name}', -1)`) −
+        span.qty(id=`qty-${name}`) 0
+        button.plus(onclick=`changeQty('${name}', 1)`) +
+
+block styles
+  link(rel="stylesheet", href="../static/electrician.css")
+
+block content
+  .service-page
+
+    // ===== LEFT SIDEBAR =====
+    .service-sidebar
+      h3 Select a service
+
+      .sidebar-grid
+        .side-item(onclick="filterService('tap')")
+          img(src="/static/images/tap.jpg")
+          span   Tap
+
+        .side-item(onclick="filterService('pipe')")
+          img(src="/static/images/pipe.jpg")
+          span Pipe
+
+        .side-item(onclick="filterService('drain')")
+          img(src="/static/images/drain.jpg")
+          span Drain
+
+        .side-item(onclick="filterService('bathroom')")
+          img(src="/static/images/basin.jpg")
+          span Bathroom
+
+        .side-item(onclick="filterService('kitchen')")
+          img(src="/static/images/kitchen.jpg")
+          span Kitchen
+
+        .side-item(onclick="filterService('geyser')")
+          img(src="/static/images/geyser.jpg")
+          span Geyser
+
+    // ===== MAIN =====
+    .service-main
+      h1 Plumber Services 🚿
+
+      // TAP
+      .service-group(data-category="tap")
+        +serviceCard("Tap Repair", 99, "pipe2.webp")
+        +serviceCard("Tap Installation", 149, "pipe3.jpg")
+
+      // PIPE
+      .service-group(data-category="pipe")
+        +serviceCard("Pipe Leakage Fix", 199, "pipe.jpg")
+        +serviceCard("New Pipe Fitting", 299, "pipe.jpg")
+
+      // DRAIN
+      .service-group(data-category="drain")
+        +serviceCard("Drain Cleaning", 149, "drain.jpg")
+        +serviceCard("Drain Block Removal", 199, "drain.avif")
+
+      // BATHROOM
+      .service-group(data-category="bathroom")
+        +serviceCard("Washbasin Fix", 149, "basin.jpg")
+        +serviceCard("Toilet Repair", 199, "toilet.avif")
+
+      // KITCHEN
+      .service-group(data-category="kitchen")
+        +serviceCard("Sink Repair", 149, "sink.avif")
+        +serviceCard("Water Filter Install", 199, "kitchen.jpg")
+
+      // GEYSER
+      .service-group(data-category="geyser")
+        +serviceCard("Geyser Repair", 299, "geyser.jpg")
+        +serviceCard("Geyser Installation", 399, "geyser.avif")
+
+    // ===== RIGHT SIDE =====
+    .service-right
+
+      .cart-box
+        h3 Cart
+        ul#cart-items
+        p.total Total: ₹0
+        button.pay-btn(onclick="goToCheckout()") Proceed to Pay
+
+      .info-box
+        h4 Why choose us?
+        ul
+          li ✔ Verified Plumbers
+          li ✔ Fast Service
+          li ✔ Affordable Pricing
+
+      .info-box
+        h4 Safety Promise
+        ul
+          li ✔ Background Checked
+          li ✔ Hygiene Maintained
+          li ✔ Service Warranty
+
+block scripts
+  script(src="../static/electrician.js")

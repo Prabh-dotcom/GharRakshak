@@ -1,0 +1,10 @@
+extends base
+
+block content
+  h2 Upload Your Work
+
+  form(action="/submit", method="POST", enctype="multipart/form-data")
+    input(type="file", name="image")
+    textarea(name="description" placeholder="Describe your work")
+    input(type="text", name="budget" placeholder="Budget")
+    button(type="submit") Submit

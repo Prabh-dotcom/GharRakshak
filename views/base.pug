@@ -1,0 +1,53 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title #{title}
+
+    // CSS
+    link(rel="stylesheet", href="../static/style.css")
+
+    // Font Awesome (icons)
+    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css")
+
+    block styles
+
+  body
+
+    // ===== HEADER =====
+    header.navbar
+
+      // LEFT: LOGO + NAME
+      .left
+        i.fa-solid.fa-house
+        span.brand GharRakshak
+
+      // CENTER: NAV LINKS
+      ul.nav-links
+        li: a(href="/") Home
+        li: a(href="/about") About
+        li: a(href="/worker") Work With Us 
+        li: a(href="/chat") Chat
+
+      // RIGHT: ICONS
+      .right
+       
+        a.icon(href="/wallet")
+          i.fa-solid.fa-wallet
+
+        a.icon(href="/profile")
+          i.fa-solid.fa-circle-user
+
+    // ===== MAIN CONTENT =====
+    main
+      block content
+
+    // ===== FOOTER =====
+    footer.footer
+      p © 2026 GharRakshak | All rights reserved
+
+    // JS
+    script(src="../static/script.js")
+
+    block scripts

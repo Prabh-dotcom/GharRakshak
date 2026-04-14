@@ -1,0 +1,107 @@
+extends base
+
+block styles
+  link(rel="stylesheet", href="../static/about.css")
+
+block content
+  .about-page
+
+    // ===== HERO =====
+    .about-hero
+      .overlay
+        h1 About GharRakshak 🏠
+        p Trusted home services at your doorstep
+
+    // ===== WHO WE ARE =====
+    .about-section
+      h2 Who We Are
+      p
+        | GharRakshak is a modern home service platform built to make your life easier.
+        | We connect you with trusted professionals for everyday needs.
+      p
+        | Whether it's fixing a switch, repairing furniture, or cleaning your home,
+        | we ensure quick service, reliable experts, and transparent pricing.
+      p
+        | Our mission is simple - bring convenience, safety, and trust to every household.
+
+    // ===== JOURNEY =====
+    .about-journey
+      h2 Our Journey 
+
+      .journey-grid
+
+        .journey-card
+          img(src="./static/images/house.webp")
+          h3 The Beginning
+          p
+            | It started with a simple problem — finding reliable home service workers was difficult.
+
+        .journey-card
+          img(src="../static/images/worker.avif")
+          h3 Growing Fast
+          p
+            | We built a platform where users can instantly book trusted professionals.
+
+        .journey-card
+          img(src="../static/images/house1.webp")
+          h3 Today
+          p
+            | Today, GharRakshak connects thousands of users with skilled workers daily.
+
+    // ===== FEEDBACK =====
+    .feedback-section
+      h2 What Our Users Say ⭐
+
+      .feedback-cards
+
+        .feedback
+          img(src="../static/images/riya.avif")
+          h3 Riya
+          p Amazing service! Electrician arrived within 30 minutes. Super fast!
+
+        .feedback
+          img(src="../static/images/shubham.avif")
+          h3 Shubham
+          p Very professional workers and affordable pricing. Highly satisfied.
+
+        .feedback
+          img(src="../static/images/neha.avif")
+          h3 Neha
+          p Best platform for home services. Easy booking and great experience.
+
+    // ===== FAQ (STATIC - ERROR FREE) =====
+    .faq-section
+      h2 FAQs ❓
+
+      .faq-item
+        .question(onclick="toggleFAQ(this)")
+          span How do I book a service?
+          i.arrow ▼
+        .answer Select a service, add it to cart and proceed to payment.
+
+      .faq-item
+        .question(onclick="toggleFAQ(this)")
+          span Are workers verified?
+          i.arrow ▼
+        .answer Yes, all professionals are background verified.
+
+      .faq-item
+        .question(onclick="toggleFAQ(this)")
+          span What about pricing?
+          i.arrow ▼
+        .answer Pricing is transparent with no hidden charges.
+
+      .faq-item
+        .question(onclick="toggleFAQ(this)")
+          span Can I cancel booking?
+          i.arrow ▼
+        .answer Yes, you can cancel before the service starts.
+
+      .faq-item
+        .question(onclick="toggleFAQ(this)")
+          span Do you provide warranty?
+          i.arrow ▼
+        .answer Yes, selected services include warranty.
+
+block scripts
+  script(src="../static/about.js")
