@@ -94,24 +94,16 @@ app.get('/', (req, res) => {
     res.render('index', { title: "Home" });
 });
 
-// 📤 Worker Page
-app.get('/worker', (req, res) => {
-    res.render('worker', { title: "Post Your Work" });
-});
+
 
 // 📤 About Page
 app.get('/about', (req, res) => {
     res.render('about', { title: "About Us" });
 });
 
-// 📋 Show Jobs
-app.get('/jobs', async (req, res) => {
-    try {
-        const jobs = await Job.find().sort({ createdAt: -1 });
-        res.render('jobs', { title: "Available Jobs", jobs });
-    } catch (err) {
-        res.send("Error fetching jobs");
-    }
+// 📤 Jobs Page
+app.get('/jobs', (req, res) => {
+    res.render('jobs', { title: "Available Jobs" });
 });
 
 // ✅ ===== FIXED ROUTE =====

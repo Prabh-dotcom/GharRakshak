@@ -17,5 +17,14 @@
     "path": "^0.12.7",
     "pug": "^3.0.4",
     "razorpay": "^2.9.6"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Prabh-dotcom/GharRakshak.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Prabh-dotcom/GharRakshak/issues"
+  },
+  "homepage": "https://github.com/Prabh-dotcom/GharRakshak#readme"
 }
